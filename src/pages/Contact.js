@@ -10,22 +10,21 @@ function Contact() {
         style={{ backgroundImage: `url(${PizzaLeft})` }}
       ></div>
       <div className="rightSide">
-        <h1> Contact Us</h1>
+        <h1>Wangsit</h1>
 
-        <form id="contact-form" method="POST">
-          <label htmlFor="name">Full Name</label>
-          <input name="name" placeholder="Enter full name..." type="text" />
-          <label htmlFor="email">Email</label>
-          <input name="email" placeholder="Enter email..." type="email" />
-          <label htmlFor="message">Message</label>
-          <textarea
-            rows="6"
-            placeholder="Enter message..."
-            name="message"
-            required
-          ></textarea>
-          <button type="submit"> Send Message</button>
-        </form>
+        <div className="contactText" style={{ whiteSpace: "pre-line" }}>
+          {`𓂀 ᚦᚱᛟᚾ ᛞᚨᚲᚨᚱ ᚲᚺᚨᛚ
+ꙮ ꙰ Ꙩ 𑀓𑀺𑀭𑀸 ᛉᛉᛉ
+
+⟁ ᚨᛚᚢᚾ ᚲᚱᛖᛋᚾᚨ 𓆙
+꧁ꦲꦤ꧀ꦕꦸꦂꦩꦤ꧀ꦠꦿ꧂
+
+𑁍 ᛞᚨᚱᚨ ᚾᚨᚲᛏᚱᚨ 𓇼
+Ꙩ ꙮ ꙰
+
+ᚷᚨᛚᚨᚾ 𓂀 ᚦᚨᚱᚨ
+𑀯𑀺𑀤𑁆𑀬𑀸 ᛉ`}
+        </div>
       </div>
     </div>
   );

@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 
-function MenuItem({ image, name, price }) {
+function MenuItem({ title, date, excerpt }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="menuItem">
-      <div style={{ backgroundImage: `url(${image})` }}> </div>
-      <h1> {name} </h1>
-      <p> ${price} </p>
-    </div>
+    <>
+      <article className="menuItem" aria-label={title}>
+        <div className="menuItemContent">
+          <h2 className="menuItemTitle">{title}</h2>
+          <div className="menuItemExcerpt">{excerpt}</div>
+
+          <button className="menuItemRead" onClick={() => setOpen(true)}>
+            Read
+          </button>
+        </div>
+      </article>
+
+      {open && (
+        <div className="modalOverlay" onClick={() => setOpen(false)}>
+          <div
+            className="modalContent"
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="modalClose" onClick={() => setOpen(false)} aria-label="Close">
+              ×
+            </button>
+            <h2>{title}</h2>
+            {/* date removed */}
+            <div className="modalBody" style={{ whiteSpace: "pre-line" }}>{excerpt}</div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

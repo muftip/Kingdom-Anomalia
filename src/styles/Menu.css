@@ -1,52 +1,122 @@
 .menu {
   width: 100%;
-  height: auto;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
+  padding: 28px 24px;
+  box-sizing: border-box;
 }
 .menu .menuTitle {
-  font-family: cursive;
-  font-size: 60px;
+  font-family: "Georgia", serif;
+  font-size: 48px;
+  margin: 0 0 18px 8px;
 }
 
 .menuList {
-  width: 70vw;
-  height: auto;
+  width: 100%;
+  max-width: 1100px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  align-items: start;
 }
 
 /* MENU ITEM STYLING */
 
 .menuItem {
-  border-radius: 15px;
-  width: 300px;
-  height: 350px;
-  margin: 20px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  background: #fff;
+  margin: 0;
+  box-shadow: 0 6px 20px rgba(20, 20, 20, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 .menuItem:hover {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
-  transition: 0.3s ease-in;
+  transform: translateY(-4px);
+  transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out;
+  box-shadow: 0 12px 30px rgba(20, 20, 20, 0.09);
+}
+
+/* content wrapper inside a card: add internal padding so text isn't cramped */
+.menuItemContent {
+  padding: 20px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menuItemTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* date removed */
+
+.menuItemExcerpt {
+  margin: 0;
+  color: #222;
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-line; /* preserve poem line breaks */
+  max-height: 420px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+/* big Read button on the card */
+.menuItemRead {
+  margin-top: 12px;
+  align-self: flex-start;
+  background: linear-gradient(90deg,#1e90ff,#6fb1ff);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(30,144,255,0.18);
+}
+
+/* modal styles */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+.modalContent {
+  background: #fff;
+  width: min(95%, 900px);
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 10px;
+  padding: 28px 30px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+  position: relative;
+}
+.modalClose {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  line-height: 1;
   cursor: pointer;
 }
-
-.menuItem div {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.menuItem h1,
-.menuItem p {
-  margin-left: 20px;
+.modalBody {
+  margin-top: 14px;
+  font-size: 18px;
+  line-height: 1.9;
+  white-space: pre-line;
 }
 
 @media only screen and (max-width: 1300px) {
